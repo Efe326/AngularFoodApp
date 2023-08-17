@@ -1,12 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/Food';
-
+import { Tag } from 'src/app/shared/models/Tag';
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
 
   constructor() { }
+
+  getAllFoodsBysearchTerm(searchTerm:string):Food[]{
+    return this.getAll().filter(food =>
+      food.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
+
+  getAllTags(): Tag[]{
+    return [
+      {name : 'All', count: 6 },
+      {name :  'Fast-Food' , count: 2 },
+      {name :  'Yerli' , count: 3 },
+      {name :  'Yabancı' , count: 3 },
+      {name :  'Kebap' , count:1 },
+      {name :  'Çok Beğenilen' , count: 2 },
+      {name :  'Kızartma' , count: 1 },
+      {name :  'Balık' , count: 1 },
+      {name :  'Tatlı' , count: 1 },
+    ];
+  }
+
+  getAllFoodsByTag(tag : string): Food[] {
+    if(tag == "All")
+     return this.getAll();
+     else
+     return this.getAll().filter(food => food.tags?.includes(tag))
+  }
 
   getAll():Food[]{
     return[
@@ -52,7 +78,7 @@ export class FoodService {
         origins: ['Belçika'],
         stars:4.5,
         imageUrl: '/assets/images/patates.jpg',
-        tags: ['Yabancı', 'Fast-Food']
+        tags: ['Yabancı', 'Fast-Food', 'Kızartma']
       },
       {
         id:5,
@@ -74,7 +100,7 @@ export class FoodService {
         origins: ['Gaziantep'],
         stars:4.5,
         imageUrl: '/assets/images/Baklava.png',
-        tags: ['Yerli', 'Tatlı']
+        tags: ['Yerli', 'Tatlı', 'Çok Beğenilen']
       }
     ]
   }
