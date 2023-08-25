@@ -92,7 +92,7 @@ export class FoodService {
         favorite: false,
         origins: ['Japonya'],
         stars:4.7,
-        imageUrl: '/assets/images/sushi.jpg',
+        imageUrl: '/assets/images/sushi2.jpg',
         tags: ['Yabancı', 'Balık']
       },
       {
@@ -105,7 +105,31 @@ export class FoodService {
         stars:4.5,
         imageUrl: '/assets/images/Baklava.png',
         tags: ['Yerli', 'Tatlı', 'Çok Beğenilen']
+      },
+      {
+        id:7,
+        name: 'Soğuk Baklava',
+        cookTime: '20-30',
+        price: 50,
+        favorite: true,
+        origins: ['Gaziantep'],
+        stars:4.9,
+        imageUrl: '/assets/images/sbaklava.jpg',
+        tags: ['Yerli', 'Tatlı', 'Çok Beğenilen']
+      },
+      {
+        id:8,
+        name: 'Salata',
+        cookTime: '10-12',
+        price: 50,
+        favorite: false,
+        origins: ['Yunanistan'],
+        stars:4.1,
+        imageUrl: '/assets/images/Salata.jpg',
+        tags: ['Vegan']
       }
     ]
   }
 }
+
+//yes
